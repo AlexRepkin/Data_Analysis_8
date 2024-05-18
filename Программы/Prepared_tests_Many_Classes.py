@@ -40,13 +40,9 @@ class Check_DB(unittest.TestCase):
         '''Метод tearDown вызывается после каждого теста для очистки окружения.
         В данном случае он избавляется от временной базы данных после проведения тестов.'''
         if self.store_tests.exists():
-            try:
-                conn = sqlite3.connect(self.store_tests)
-                conn.close()
-            except Exception as e:
-                print(f"Error closing connection: {e}")
-            finally:
-                self.store_tests.unlink()
+            conn = sqlite3.connect(self.store_tests)
+            conn.close()
+            self.store_tests.unlink()
 
     def test_create_db(self):
         '''Тестирование создания базы данных.'''
@@ -88,13 +84,9 @@ class Check_Human(unittest.TestCase):
         '''Метод tearDown вызывается после каждого теста для очистки окружения.
         В данном случае он избавляется от временной базы данных после проведения тестов.'''
         if self.store_tests.exists():
-            try:
-                conn = sqlite3.connect(self.store_tests)
-                conn.close()
-            except Exception as e:
-                print(f"Error closing connection: {e}")
-            finally:
-                self.store_tests.unlink()
+            conn = sqlite3.connect(self.store_tests)
+            conn.close()
+            self.store_tests.unlink()
 
     def test_new_human(self):
         '''Попытка добавления нового человека.'''
@@ -146,13 +138,9 @@ class Check_All_Selecting(unittest.TestCase):
         '''Метод tearDown вызывается после каждого теста для очистки окружения.
         В данном случае он избавляется от временной базы данных после проведения тестов.'''
         if self.store_tests.exists():
-            try:
-                conn = sqlite3.connect(self.store_tests)
-                conn.close()
-            except Exception as e:
-                print(f"Error closing connection: {e}")
-            finally:
-                self.store_tests.unlink()
+            conn = sqlite3.connect(self.store_tests)
+            conn.close()
+            self.store_tests.unlink()
 
     def test_select_all(self):
         '''Попытка получения вообще всех записей о людях.'''
@@ -203,13 +191,9 @@ class Check_Month_Selecting(unittest.TestCase):
         '''Метод tearDown вызывается после каждого теста для очистки окружения.
         В данном случае он избавляется от временной базы данных после проведения тестов.'''
         if self.store_tests.exists():
-            try:
-                conn = sqlite3.connect(self.store_tests)
-                conn.close()
-            except Exception as e:
-                print(f"Error closing connection: {e}")
-            finally:
-                self.store_tests.unlink()
+            conn = sqlite3.connect(self.store_tests)
+            conn.close()
+            self.store_tests.unlink()
 
     def test_select_by_month(self):
         '''Попытка выбрать людей относительно их месяца рождения.'''
